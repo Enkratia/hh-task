@@ -1,0 +1,248 @@
+/* stylelint-disable declaration-block-no-redundant-longhand-properties */
+/* stylelint-disable order/order */
+@use "./utils/" as *;
+
+.srOnly {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+}
+
+.overflowHiddenX {
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: rem(856);
+
+  @include bp-up("container") {
+    margin-inline: auto;
+  }
+
+  @include bp-down("container") {
+    margin-inline: rem(20);
+  }
+
+  // @include bp-down("992") {
+  //   margin-inline: rem(20);
+  // }
+
+  @include bp-down("576") {
+    margin-inline: rem(10);
+  }
+
+  &Wide {
+    max-width: rem(1033);
+
+    @include bp-down("containerWide") {
+      margin-inline: rem(30);
+    }
+
+    @include bp-down("992") {
+      margin-inline: rem(20);
+    }
+
+    // @include bp-down("576") {
+    //   margin-inline: rem(20);
+    // }
+  }
+}
+
+.btn {
+  border: rem(2) solid var(--primary-color);
+  padding-top: rem(7);
+  padding-right: rem(19);
+  padding-bottom: rem(7);
+  padding-left: rem(19);
+  font: var(--small-02-font);
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  transition: color 0.3s, background-color 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--primary-color);
+    background-color: var(--white-color);
+  }
+
+  &:disabled {
+    opacity: 0.8;
+    pointer-events: none;
+  }
+
+  &Wrapper {
+    position: relative;
+
+    &::before {
+      content: none;
+      position: absolute;
+      left: 0;
+      top: calc(100% - rem(2));
+      font: var(--small-07-font);
+    }
+
+    // **
+    &[data-auth-message] {
+      &::before {
+        content: attr(data-auth-message);
+        color: var(--danger-color);
+      }
+    }
+
+    // **
+    &[data-request-success] {
+      &::before {
+        content: "Data sent";
+        color: var(--success-color);
+      }
+    }
+
+    &[data-request-warning] {
+      &::before {
+        content: "Failed to send data";
+        color: var(--danger-color);
+      }
+    }
+
+    &[data-request-process] {
+      &::before {
+        content: "Data is sent...";
+      }
+    }
+  }
+}
+
+.input {
+  outline: none;
+  border: rem(1) solid var(--light-color);
+  padding-top: rem(7);
+  padding-right: rem(19);
+  padding-bottom: rem(7);
+  padding-left: rem(19);
+  font: var(--small-02-font);
+  color: var(--black-color);
+  background-color: transparent;
+  transition: border-color 0.3s;
+
+  &:focus {
+    border-color: var(--black-color);
+  }
+
+  &::placeholder {
+    font: var(--small-02-font);
+  }
+
+  &Wrapper {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      left: 0;
+      top: calc(100% - rem(2));
+      font: var(--small-07-font);
+    }
+
+    &::after {
+      position: absolute;
+      right: rem(66);
+      top: 50%;
+      z-index: var(--z-up);
+      display: block;
+      width: rem(20);
+      height: rem(20);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      transform: translate(50%, -50%);
+    }
+
+    // .inputSvg {
+    //   position: absolute;
+    //   right: rem(66);
+    //   top: 50%;
+    //   z-index: var(--z-up);
+    //   display: block;
+    //   transform: translate(50%, -50%);
+    // }
+
+    &[data-validity-warning] {
+      &::before {
+        content: attr(data-validity-warning);
+        color: var(--danger-color);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      >.input {
+        border-color: var(--danger-color);
+      }
+
+      .inputSvg {
+        display: none;
+      }
+    }
+
+    &[data-validity-warning-pass] {
+      @extend .inputWrapper, [data-validity-warning];
+
+      &::before {
+        content: attr(data-validity-warning-pass);
+      }
+
+      &::after {
+        content: none;
+      }
+    }
+
+    &[data-validity-warning-file] {
+      @extend .inputWrapper, [data-validity-warning];
+
+      &::before {
+        content: attr(data-validity-warning-file);
+      }
+
+      &::after {
+        content: none;
+      }
+    }
+
+    &[data-validity-success] {
+      >.input {
+        border-color: var(--success-color);
+      }
+
+      .inputSvg {
+        display: none;
+      }
+    }
+
+    &[data-validity-success-pass] {
+      @extend .inputWrapper, [data-validity-success];
+
+      &::after {
+        content: none;
+      }
+    }
+
+    &[data-validity-success-file] {
+      @extend .inputWrapper, [data-validity-success];
+
+      &::after {
+        content: none;
+      }
+    }
+  }
+}
+
+// **
+.skeleton {
+  display: block;
+  border-radius: rem(4);
+  background-color: var(--skeleton-color);
+  animation: var(--skeleton-animation);
+  pointer-events: none;
+  user-select: none;
+}

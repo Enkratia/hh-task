@@ -1,0 +1,20 @@
+@use "../../scss/utils/" as *;
+
+.root {
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: var(--z-modal);
+  padding-top: rem(27);
+  padding-bottom: rem(27);
+  background-color: var(--white-color);
+
+  @include bp-down("576") {
+    padding-top: rem(20);
+    padding-bottom: rem(20);
+  }
+}
+
+.container {
+  text-align: right;
+}

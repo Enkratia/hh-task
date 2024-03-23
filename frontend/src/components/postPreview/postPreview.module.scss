@@ -1,0 +1,119 @@
+@use "../../scss/utils/" as *;
+
+.root {
+  border-radius: rem(4);
+  padding: rem(24);
+  padding-bottom: rem(28);
+  height: 100%;
+  background-color: var(--white-color);
+
+  @include bp-down("678") {
+    padding-block: rem(20);
+  }
+
+  @include bp-down("576") {
+    padding-bottom: rem(19);
+    padding-inline: rem(20);
+  }
+
+  @include bp-down("414") {
+    padding-top: rem(13);
+  }
+}
+
+.title {
+  margin: 0;
+  margin-bottom: rem(27);
+  font: var(--big-03-font);
+  color: var(--dark-color);
+
+  &Link {
+    transition: color 0.3s;
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  @include bp-down("container") {
+    font-size: calc(rem(19.32) + 0.71vw); // 26>22(936>375)
+    line-height: 136%;
+  }
+
+  @include bp-down("678") {
+    margin-bottom: rem(16);
+  }
+
+  @include bp-down("576") {
+    margin-bottom: rem(11);
+  }
+}
+
+.metadata {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  margin-bottom: rem(17);
+  padding: 0;
+  font: var(--samll-05-font);
+  color: var(--dark-color);
+  gap: rem(5);
+
+
+  &Item {
+    display: inline-flex;
+    align-items: center;
+    text-align: left;
+
+    &:first-child {
+      margin-right: rem(21);
+      white-space: nowrap;
+
+      &::after {
+        content: "";
+        position: relative;
+        display: inline-block;
+        margin-left: rem(29);
+        width: rem(1);
+        height: rem(21);
+        background-color: var(--dark-color);
+      }
+
+      @include bp-down("678") {
+        margin-right: rem(18);
+
+        &::after {
+          margin-left: rem(25);
+        }
+      }
+    }
+  }
+
+  &Tag {
+    word-break: break-word;
+    transition: color 0.3s;
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+
+  @include bp-down("container") {
+    font-size: calc(rem(14.66) + 0.36vw); // 18>16(936>375)
+  }
+
+  @include bp-down("678") {
+    margin-bottom: rem(19);
+  }
+}
+
+.content {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 0;
+  font: var(--small-06-font);
+  color: var(--dark-color);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+}

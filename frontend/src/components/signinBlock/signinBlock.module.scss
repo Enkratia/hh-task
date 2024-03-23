@@ -1,0 +1,115 @@
+@use "../../scss//utils/" as *;
+
+.root {
+  position: relative;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: rem(1) solid var(--light-color);
+  border-radius: rem(4);
+  padding: rem(60);
+  padding-top: rem(48);
+  width: 100%;
+  max-width: rem(500);
+  color: var(--black-color);
+  background-color: var(--white-color);
+  transform: translateX(-50%);
+
+  @include bp-down("440") {
+    padding-inline: rem(20); // (60>40)1360>320
+  }
+}
+
+.title {
+  margin: 0;
+  margin-bottom: rem(60);
+  font: var(--big-01-font);
+  text-align: center;
+
+  @include bp-down("container") {
+    margin-bottom: calc(rem(33.84) + 1.92vw); // (60>40)1360>320
+  }
+}
+
+.content {
+  width: 100%;
+}
+
+// **
+.input {
+  width: 100%;
+
+  &Wrapper {
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: rem(18);
+    }
+  }
+}
+
+
+.btn {
+  width: 100%;
+
+  &Wrapper {
+    margin-bottom: rem(18);
+    width: 100%;
+  }
+}
+
+
+// **
+.descr {
+  display: flex;
+  width: 100%;
+  font: var(--small-06-font);
+  text-align: initial;
+
+  &Wrapper {
+    margin-right: rem(20);
+  }
+
+  &Text {
+    margin-right: rem(6);
+  }
+
+  &Link {
+    text-align: left;
+    color: var(--primary-color);
+    transition: opacity 0.3s;
+
+    &Right {
+      margin-left: auto;
+      text-align: right;
+    }
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
+
+.close {
+  position: absolute;
+  right: rem(36);
+  top: rem(36);
+  display: none;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+  cursor: pointer;
+
+  svg {
+    width: rem(36);
+    height: rem(36);
+    fill: var(--black-color);
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}

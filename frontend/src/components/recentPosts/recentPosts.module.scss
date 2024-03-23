@@ -1,0 +1,54 @@
+@use "../../scss/utils/" as *;
+
+.root {
+  padding-top: rem(7);
+  padding-bottom: rem(32);
+  background-color: var(--light-blue-color);
+
+  @include bp-down("container") {
+    padding-bottom: calc(rem(42.01) - 1.07vw); // 32>38(936>375)
+  }
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: rem(2);
+
+  @include bp-down("678") {
+    justify-content: center
+  }
+}
+
+.title {
+  margin: 0;
+  margin-right: rem(20);
+  font: var(--small-01-font);
+  color: var(--dark-color);
+
+  @include bp-down("container") {
+    font-size: calc(rem(15.33) + 0.71vw); // 22>18(936>375)
+  }
+
+  @include bp-down("678") {
+    margin-right: revert;
+    margin-bottom: rem(2);
+  }
+}
+
+.link {
+  position: relative;
+  top: rem(2);
+  font: var(--small-06-font);
+  color: var(--secondry-color);
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-position: under;
+  }
+
+  @include bp-down("678") {
+    display: none;
+  }
+}

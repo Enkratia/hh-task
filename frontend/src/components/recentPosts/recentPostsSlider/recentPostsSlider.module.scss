@@ -1,0 +1,30 @@
+@use "../../../scss/utils/" as *;
+
+.root {
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  margin-left: rem(-20);
+  backface-visibility: hidden;
+  touch-action: pan-y;
+
+  @include bp-down("678") {
+    flex-direction: column;
+  }
+}
+
+.slide {
+  flex: 0 0 50%;
+  padding-left: rem(20);
+  min-width: 0;
+
+  @include bp-down("678") {
+    flex: 0 0 50%;
+
+    &:not(:last-child) {
+      padding-bottom: rem(17);
+    }
+  }
+}

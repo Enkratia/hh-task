@@ -1,0 +1,51 @@
+@use "../../../scss//utils/" as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: var(--black-color);
+  background-color: var(--white-color);
+
+  svg {
+    margin-top: rem(-45);
+    margin-bottom: rem(40);
+    width: rem(120);
+    height: rem(108);
+    stroke: var(--primary-color);
+  }
+}
+
+.title {
+  margin-bottom: rem(15);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  font: var(--big-03-font);
+}
+
+.main {
+  margin-bottom: rem(50);
+}
+
+.descr {
+  margin: 0;
+  margin-bottom: rem(10);
+}
+
+.email {
+  font: var(--small-04-font);
+}
+
+.tip {
+  border-top: rem(1) solid var(--light-color);
+  padding-top: rem(5);
+  font: var(--small-07-font);
+}

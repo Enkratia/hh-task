@@ -1,0 +1,83 @@
+// Min-width
+$breakpoints-up: (
+  "340": "21.25em",
+  "350": "21.875em",
+  "375": "23.4375em",
+  "414": "25.875em",
+  "440": "27.5em",
+  "480": "30em",
+  "500": "31.25em",
+  "520": "32.5em",
+  "576": "36em",
+  "678": "42.375em",
+  "768": "48em",
+  "828": "51.75em",
+  "836": "52.25em",
+  "876": "54.75em",
+  "885": "55.3125em",
+  "896": "56em",
+  "992": "62em",
+  "1024": "64em",
+  "1060": "66.25em",
+  "1084": "67.75em",
+  "1120": "70em",
+  "1150": "71.875em",
+  "1200": "75em",
+  "1290": "80.625em",
+  "1310": "81.875em",
+  "1325": "82.8125em",
+  "1400": "87.5em",
+  "1920": "120em",
+  "container": "52em",
+  /* container max-width + margin-inline = 856(max-width) + 30*2(margin-inline) + 20(scrollbar) = 936 */
+  "containerWide": "69.5625em",
+  /* containerWide max-width + margin-inline = 1033(max-width) + 30*2(margin-inline) + 20(scrollbar) = 1113 */
+);
+
+// Max-width
+$breakpoints-down: (
+  "340": "21.1875em",
+  "350": "21.8125em",
+  "375": "23.375em",
+  "414": "25.8125em",
+  "440": "27.4375em",
+  "480": "29.9375em",
+  "500": "31.1875em",
+  "520": "32.4375em",
+  "576": "35.9375em",
+  "678": "42.3125em",
+  "768": "47.9375em",
+  "828": "51.6875em",
+  "836": "52.1875em",
+  "876": "54.6875em",
+  "885": "55.25em",
+  "896": "55.9375em",
+  "992": "61.9375em",
+  "1024": "63.9375em",
+  "1060": "66.1875em",
+  "1084": "67.6875em",
+  "1120": "69.9375em",
+  "1150": "71.8125em",
+  "1200": "74.9375em",
+  "1290": "80.5625em",
+  "1310": "81.8125em",
+  "1325": "82.75em",
+  "1400": "87.4375em",
+  "1920": "119.9375em",
+  "container": "58.4375em",
+  /* container max-width + margin-inline = 856(max-width) + 30*2(margin-inline) + 20(scrollbar) - 1 = 935 */
+  "containerWide": "69.5em",
+  /* containerWide max-width + margin-inline = 1033(max-width) + 30*2(margin-inline) + 20(scrollbar) - 1 = 1112 */
+);
+
+@mixin bp-up($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+
+@mixin bp-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}
