@@ -13,13 +13,13 @@ export const WorkPreview: React.FC<WorkProps> = ({ work }) => {
   return (
     <article className={s.root}>
       <div className={s.imageWrapper}>
-        <div className={s.imageWrapperInner}>
+        <Link href="" className={s.imageWrapperInner}>
           <Image
             src={work.imageUrl}
             alt="Works' picture."
             sizes="(max-width: 576px) 100vw, 250px"
             fill></Image>
-        </div>
+        </Link>
       </div>
 
       <div className={s.text}>

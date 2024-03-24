@@ -28,7 +28,6 @@
   flex-direction: column;
   align-items: center;
   width: 70%;
-  font: var(--big-03-font);
 }
 
 .main {
@@ -38,6 +37,7 @@
 .descr {
   margin: 0;
   margin-bottom: rem(10);
+  font: var(--big-04-font);
 }
 
 .email {

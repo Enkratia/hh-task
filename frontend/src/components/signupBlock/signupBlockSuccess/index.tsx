@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import cs from "../../../scss/helpers.module.scss";
 import s from "./signupBlockSuccess.module.scss";
-import Trophy from "../../../../public/img/trophy.svg";
+import Sucession from "../../../../public/img/sucession.svg";
 
 type SignupBlockSuccessProps = {
   email: string;
@@ -12,7 +12,7 @@ type SignupBlockSuccessProps = {
 export const SignupBlockSuccess: React.FC<SignupBlockSuccessProps> = ({ email }) => {
   return (
     <div className={s.root}>
-      <Trophy aria-hidden="true" />
+      <Sucession aria-hidden="true" />
 
       <div className={s.content}>
         <div className={s.main}>
